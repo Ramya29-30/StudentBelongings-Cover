@@ -1,0 +1,4 @@
+# Test tooling only: never installed in the production image.
+-r requirements.txt
+pytest>=8.0
+onnx>=1.16   # only to build the tiny STUB detector used by the model-loading tests (it is not a damage model)

@@ -1,0 +1,75 @@
+{
+ "note": "Fictional scenarios mirroring backend/tests. Amounts in INR.",
+ "scenarios": [
+  {
+   "name": "valid laptop screen claim",
+   "plan": "Campus Basic",
+   "items": [
+    {
+     "component": "Screen",
+     "parts": 4000,
+     "labour": 500
+    }
+   ],
+   "expected_payable": 3000,
+   "expected_recommendation": "RECOMMEND_APPROVAL_REVIEW"
+  },
+  {
+   "name": "per-item limit",
+   "items": [
+    {
+     "component": "Whole device",
+     "action": "Replace",
+     "parts": 50000
+    }
+   ],
+   "laptop_limit": 45000,
+   "expected_payable": 43500
+  },
+  {
+   "name": "overall limit",
+   "items": [
+    {
+     "parts": 70000
+    }
+   ],
+   "overall_limit": 60000,
+   "expected_payable": 58500
+  },
+  {
+   "name": "depreciation on replacement",
+   "plan": "Campus Plus",
+   "asset_age_years": 2,
+   "items": [
+    {
+     "action": "Replace",
+     "parts": 42000
+    }
+   ],
+   "expected_depreciation": 8400,
+   "expected_payable": 32600
+  },
+  {
+   "name": "calculation order",
+   "loss": 10000,
+   "deductible_percent": 10,
+   "remaining_limit": 5000,
+   "limit_then_deductible": 4000,
+   "deductible_then_limit": 5000
+  },
+  {
+   "name": "policy expired on incident date",
+   "expected_rule": "POL-001 FAIL"
+  },
+  {
+   "name": "missing damage photo",
+   "expected_rule": "POL-008 PENDING",
+   "expected_recommendation": "PENDING_INFORMATION"
+  },
+  {
+   "name": "duplicate claim same asset/date",
+   "expected_rule": "POL-010 FLAG",
+   "expected_recommendation": "MANUAL_REVIEW"
+  }
+ ]
+}

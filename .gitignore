@@ -1,0 +1,31 @@
+# Secrets
+.env
+.env.*
+.env.example
+
+# Local databases and runtime data
+backend/data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated frontend build
+frontend/dist/
+
+# Internal handover
+PROJECT_HANDOVER.md
+
+# Dependencies and cache
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# AI training datasets and outputs
+ai_training/dataset/
+ai_training/runs/
+ai_training/pairs/
+ai_training/*.pt
+
+backend/models/yolo11n.onnx

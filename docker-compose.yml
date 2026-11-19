@@ -1,0 +1,17 @@
+# Example only. Put real values in .env.production (never commit it) and put an HTTPS reverse proxy in front.
+services:
+  app:
+    build: .
+    env_file: .env.production
+    environment:
+      APP_ENV: production
+      COOKIE_SECURE: "true"
+      SEED_DEMO_DATA: "false"
+      TRUST_PROXY: "true"          # only because a trusted reverse proxy sits in front
+    ports:
+      - "127.0.0.1:8000:8000"       # bind to localhost; expose through the HTTPS proxy
+    volumes:
+      - sbc-data:/app/backend/data  # SQLite database + uploaded evidence
+    restart: unless-stopped
+volumes:
+  sbc-data:
